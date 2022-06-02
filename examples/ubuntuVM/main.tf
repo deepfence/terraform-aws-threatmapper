@@ -28,7 +28,7 @@ variable "ingress" {
 
 variable "instance_type" {
   type    = string
-  default = "d2.2xlarge"
+  default = "c4.4xlarge"
 }
 
 variable "ec2_user" {
