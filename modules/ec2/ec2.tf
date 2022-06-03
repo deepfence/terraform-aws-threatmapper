@@ -2,6 +2,7 @@
 module "vpc" {
   source = "../vpc"
   ingress = var.ingress
+  ip_script_path = var.ip_script_path
 }
 
 data "aws_ami" "amazon_linux_2" {

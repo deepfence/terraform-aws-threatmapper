@@ -21,6 +21,8 @@ variable "script_path" {
   default  = "../scripts/threatmapperUbuntu.sh"
 }
 
+
+
 variable "ingress" {
   type    = list(number)
   default = [80, 443, 22]
@@ -30,6 +32,10 @@ variable "instance_type" {
   type    = string
   default = "c4.4xlarge"
 }
+variable "ip_script_path" {
+    type = string
+    default = "whatismyip.sh"
+} 
 
 variable "ec2_user" {
    type = string
@@ -81,6 +87,7 @@ module "ec2module" {
   key_value_pair = "threatmapper-key-pair"
   ingress = var.ingress
   script_path = var.script_path
+  ip_script_path = var.ip_script_path
   instance_type = var.instance_type
   ec2_user = var.ec2_user
 }

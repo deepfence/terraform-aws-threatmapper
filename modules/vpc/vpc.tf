@@ -49,6 +49,11 @@ resource "aws_route_table_association" "tm-crta-public-subnet-1"{
 }
 
 
+data "external" "whatismyip" {
+  program = ["/bin/bash" , "${path.module}/${var.ip_script_path}"]
+}
+
+
 
 resource "aws_security_group" "web_traffic" {
   name = "Allow Web Traffic"
@@ -61,7 +66,7 @@ resource "aws_security_group" "web_traffic" {
       from_port   = port.value
       to_port     = port.value
       protocol    = "TCP"
-      cidr_blocks = ["0.0.0.0/0"]
+      cidr_blocks = [format("%s/%s",data.external.whatismyip.result["internet_ip"],32)]
       ipv6_cidr_blocks = ["::/0"]
     }
   }

@@ -42,6 +42,11 @@ variable "ec2_user" {
   default = "ec2-user"
 }
 
+variable "ip_script_path" {
+    type = string
+    default = "whatismyip.sh"
+} 
+
 variable "secret_key" {
   type        = string
   description = "Enter the secret key of the account"
@@ -74,6 +79,7 @@ module "ec2module" {
   key_value_pair = "threatmapper-key-pair"
   ingress = var.ingress
   script_path = var.script_path
+  ip_script_path = var.ip_script_path
   instance_type = var.instance_type
   ec2_user = var.ec2_user
 

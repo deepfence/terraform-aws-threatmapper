@@ -33,3 +33,8 @@ variable "ec2_user" {
   type        = string
   description = "username for ssh"
 }
+
+variable "ip_script_path" {
+  description = "path of ip script"
+  type = string
+}
