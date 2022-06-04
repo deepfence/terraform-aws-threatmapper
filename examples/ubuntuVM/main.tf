@@ -96,3 +96,7 @@ output "ec2_id" {
     value = module.ec2module.instance_id
 }
 
+output "public_ip" {
+    value = module.ec2module.public_ip
+}
+

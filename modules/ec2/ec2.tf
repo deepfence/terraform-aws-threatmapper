@@ -26,9 +26,9 @@ resource "aws_instance" "ec2" {
   subnet_id                   = module.vpc.subnet_id
   key_name                    = aws_key_pair.threatmapper-key-pair.id
   vpc_security_group_ids      = [module.vpc.sg_id]
-  root_block_device {
-    volume_size = 100
-  }
+  # root_block_device {
+  #   volume_size = 100
+  # }
   tags = {
     Name = "terraform_threatmapper"
   }
@@ -65,4 +65,8 @@ resource "aws_key_pair" "threatmapper-key-pair" {
 
 output "instance_id" {
   value = aws_instance.ec2.id
+}
+
+output "public_ip" {
+  value = aws_instance.ec2.public_ip
 }

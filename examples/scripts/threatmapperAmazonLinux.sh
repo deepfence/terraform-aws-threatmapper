@@ -18,3 +18,13 @@ docker-compose --version
 docker-compose -f docker-compose.yml up --detach
 docker ps -a
 hostname -I
+date +"%H:%M:%S"
+sleep 2m 30s
+if [[ $(docker-compose logs | grep -i error) ]]; then
+    echo "check the below error logs in the threatmapper"
+    docker-compose logs | grep -i error
+else
+    echo "no error logs found threatmapper should be up now"
+fi
+echo "start of docker container error logs"
+date +"%H:%M:%S"
