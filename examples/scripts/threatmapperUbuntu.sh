@@ -21,3 +21,8 @@ docker-compose --version
 docker-compose -f docker-compose.yml up --detach
 docker ps -a
 hostname -I
+date +"%H:%M:%S"
+sleep 2m 30s
+echo "start of docker container error logs"
+docker-compose logs | grep -i error
+date +"%H:%M:%S"
