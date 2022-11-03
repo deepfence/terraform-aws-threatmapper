@@ -30,7 +30,7 @@ variable "ingress" {
 
 variable "instance_type" {
   type    = string
-  default = "c4.4xlarge"
+  default = "t3.2xlarge"
 }
 variable "ip_script_path" {
     type = string
